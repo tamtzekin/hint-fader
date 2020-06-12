@@ -1,15 +1,15 @@
 /* Hint buttons */
-.is-hidden {
-	display: none;
-}
-
 .btn {
-	background: #ccc;
-	border-radius: 3px;
-	display: inline-block;
-	padding: 5px;
+    background: #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 5px;
 }
 
 .btn:hover {
-	cursor: pointer;
+    cursor: pointer;
+}
+
+.is-hidden {
+    display: none;
 }
