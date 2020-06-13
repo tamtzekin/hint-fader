@@ -30,15 +30,21 @@ for (var i = 0; i < hintIds.length; i++) {
 // Check which button was clicked 
 for (var i = 0; i < btn.length; i++) {
     (function (i) {
+        // To do:use onmouseover / onmouseout instead
         btn[i].onclick = function () {
-            if (hints[i].hintTextElementId.classList.contains('is-hidden')) {
-                hints[i].hintTextElementId.classList.remove('is-hidden');
-            } else {
-                hints[i].hintTextElementId.classList.add('is-hidden');
-            }
-
+            triggerFade(hints[i].hintTextElementId);
         }
-    }(i));
+    }
+    (i));
+};
+
+// Trigger the fade
+function triggerFade(el) {
+    if (el.classList.contains('is-hidden')) {
+        fadeIn(el);
+    } else {
+        fadeOut(el);
+    };
 };
 
 // Fade out
@@ -71,29 +77,4 @@ const fadeIn = (el, display) => {
             requestAnimationFrame(fade);
         }
     })();
-};
-
-// Check which hint box was clicked
-// function checkWhichHint() {
-//     for (let i = 0; i < hints.length; i++) {
-//             // console.log("You clicked", this.innerHTML);
-//             if (el.classList.contains('is-hidden')) {
-//                 fadeIn(el);
-//                 console.log("trigger fade in");
-//             } else {
-//                 fadeOut(el);
-//                 console.log("trigger fade out")
-//             }
-//         };
-//     };
-
-// Trigger the fade
-function triggerFade(el) {
-    if (el.classList.contains('is-hidden')) {
-        fadeIn(el);
-        console.log("fade in");
-    } else {
-        fadeOut(el);
-        console.log("fade out");
-    };
 };
