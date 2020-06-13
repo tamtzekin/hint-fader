@@ -31,8 +31,12 @@ for (var i = 0; i < hintIds.length; i++) {
 for (var i = 0; i < btn.length; i++) {
     (function (i) {
         btn[i].onclick = function () {
-            console.log(hints[i].hintTextElementId);  
-            hints[i].hintTextElementId.classList.remove('is-hidden');   
+            if (hints[i].hintTextElementId.classList.contains('is-hidden')) {
+                hints[i].hintTextElementId.classList.remove('is-hidden');
+            } else {
+                hints[i].hintTextElementId.classList.add('is-hidden');
+            }
+
         }
     }(i));
 };
@@ -40,7 +44,16 @@ for (var i = 0; i < btn.length; i++) {
 // Fade out
 const fadeOut = (el) => {
     el.style.opacity = 1;
-    fade()
+    fade();
+
+    function fade() {
+        if ((el.style.opacity -= .1) < 0) {
+            el.style.display = 'none';
+            el.classList.add('is-hidden');
+        } else {
+            requestAnimationFrame(fade)
+        }
+    };
 };
 
 // Fade in 
@@ -61,35 +74,26 @@ const fadeIn = (el, display) => {
 };
 
 // Check which hint box was clicked
-function checkWhichHint() {
-    for (let i = 0; i < hints.length; i++) {
-            // console.log("You clicked", this.innerHTML);
-            if (el.classList.contains('is-hidden')) {
-                fadeIn(el);
-                console.log("trigger fade in");
-            } else {
-                fadeOut(el);
-                console.log("trigger fade out")
-            }
-        };
-    };
+// function checkWhichHint() {
+//     for (let i = 0; i < hints.length; i++) {
+//             // console.log("You clicked", this.innerHTML);
+//             if (el.classList.contains('is-hidden')) {
+//                 fadeIn(el);
+//                 console.log("trigger fade in");
+//             } else {
+//                 fadeOut(el);
+//                 console.log("trigger fade out")
+//             }
+//         };
+//     };
 
 // Trigger the fade
-function triggerFade() {
+function triggerFade(el) {
     if (el.classList.contains('is-hidden')) {
         fadeIn(el);
-        console.log("Hint is clicked");
+        console.log("fade in");
     } else {
         fadeOut(el);
-    };
-
-    // Fade function 
-    const fade = () => {
-        if ((el.style.opacity -= .1) < 0) {
-            el.style.display = 'none';
-            el.classList.add('is-hidden');
-        } else {
-            requestAnimationFrame(fade)
-        }
+        console.log("fade out");
     };
 };
