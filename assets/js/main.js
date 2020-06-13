@@ -45,21 +45,6 @@ function triggerFade(el) {
     };
 };
 
-// Fade out
-const fadeOut = (el) => {
-    el.style.opacity = 1;
-    fade();
-
-    function fade() {
-        if ((el.style.opacity -= .1) < 0) {
-            el.style.display = 'none';
-            el.classList.add('is-hidden');
-        } else {
-            requestAnimationFrame(fade)
-        }
-    };
-};
-
 // Fade in 
 const fadeIn = (el, display) => {
     if (el.classList.contains('is-hidden')) {
@@ -75,4 +60,19 @@ const fadeIn = (el, display) => {
             requestAnimationFrame(fade);
         }
     })();
+};
+
+// Fade out
+const fadeOut = (el) => {
+    el.style.opacity = 1;
+    fade();
+
+    function fade() {
+        if ((el.style.opacity -= .1) < 0) {
+            el.style.display = 'none';
+            el.classList.add('is-hidden');
+        } else {
+            requestAnimationFrame(fade)
+        }
+    };
 };
