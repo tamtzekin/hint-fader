@@ -4,15 +4,15 @@ body {
 }
 
 .btn {
-    border: solid 3px;
+    border: solid 2.5px;
     display: block;
-    font-family: sans-serif;
     margin: auto;
     padding: 15px;
     width: 150px;
 }
 
 .btn:hover {
+    background: #ffd464;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -22,7 +22,7 @@ body {
 }
 
 .hintbox {
-    border: solid 3px;
+    border: solid 2.5px;
     border-radius: 15px;
     margin: auto;
     margin-top: 25px;
