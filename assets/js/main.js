@@ -3,25 +3,21 @@ const btn = document.getElementsByClassName('btn');
 
 // Create hint class 
 class Hint {
-    constructor(hintId, hintText, hintTextElementId) {
+    constructor(hintId, hintTextElementId) {
         this.hintId = hintId;
-        this.hintText = hintText;
         this.hintTextElementId = hintTextElementId;
     }
 };
 
 // Build hint data
 const hintIds = ['1', '2', '3', '4'];
-
-// To do: use the hint text here instead of in html
-const hintTextBlocks = ["This is what you need to solve riddle one", "This is what you need to solve riddle two", "This is what you need to solve riddle three", "This is what you need to solve riddle four"];
 const hintTextIds = ['hinttextone', 'hinttexttwo', 'hinttextthree', 'hinttextfour']
 
 // Fill hint data per hint
 const hints = [];
 
 for (var i = 0; i < hintIds.length; i++) {
-    hints.push(new Hint(hintIds[i], hintTextBlocks[i], document.getElementById(hintTextIds[i])));
+    hints.push(new Hint(hintIds[i], document.getElementById(hintTextIds[i])));
     // console.log(hints)
 };
 

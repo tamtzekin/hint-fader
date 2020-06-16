@@ -1,20 +1,22 @@
-/* Hint buttons */
+/** HINT BUTTON STYLES **/
 body {
     text-align: center;
 }
 
 .btn {
+    /* background: #eceae6; */
     border: solid 2.5px;
+	box-shadow: 0 5px #a8a8a8;
     display: block;
     margin: auto;
-    padding: 15px;
+    padding: 25px 60px 25px 60px;
     width: 150px;
 }
 
 .btn:hover {
     background: #ffd464;
     border-radius: 15px;
-    cursor: pointer;
+    cursor: help;
 }
 
 .is-hidden {
@@ -26,7 +28,7 @@ body {
     border-radius: 15px;
     margin: auto;
     margin-top: 25px;
-    padding: 15px;
+    padding: 25px 60px 25px 60px;
     text-align: center;
     width: 150px;
 }
