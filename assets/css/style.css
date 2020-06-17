@@ -20,7 +20,7 @@ body {
 }
 
 .is-hidden {
-    display: none;
+    opacity: 0;
 }
 
 .hintbox {
@@ -31,4 +31,17 @@ body {
     padding: 25px 60px 25px 60px;
     text-align: center;
     width: 150px;
+}
+
+/* Fade effects*/
+.is-visible {
+    opacity: 1;
+    -webkit-transition: 600ms all ease;
+    transition: 600ms all ease;
+}
+
+.is-hidden {
+    opacity: 0;
+    -webkit-transition: 600ms all ease;
+    transition: 600ms all ease;
 }

@@ -21,6 +21,7 @@ for (var i = 0; i < hintIds.length; i++) {
     // console.log(hints)
 };
 
+// TO DO: already have access to i. clean this up
 // Check which button was clicked 
 for (var i = 0; i < btn.length; i++) {
     (function (i) {
@@ -33,42 +34,12 @@ for (var i = 0; i < btn.length; i++) {
 };
 
 // Trigger the fade
-function triggerFade(el) {
-    if (el.classList.contains('is-hidden')) {
-        fadeIn(el);
-    } else {
-        fadeOut(el);
-    };
-};
-
-// Fade in 
-const fadeIn = (el, display) => {
+const triggerFade = (el) => {
     if (el.classList.contains('is-hidden')) {
         el.classList.remove('is-hidden');
-    }
-    el.style.opacity = 0;
-    el.style.display = display || "block";
-    
-    (function fade() {
-        var val = parseFloat(el.style.opacity);
-        if (!((val += .1) > 1)) {
-            el.style.opacity = val;
-            requestAnimationFrame(fade);
-        }
-    })();
-};
-
-// Fade out
-const fadeOut = (el) => {
-    el.style.opacity = 1;
-    fade();
-
-    function fade() {
-        if ((el.style.opacity -= .1) < 0) {
-            el.style.display = 'none';
-            el.classList.add('is-hidden');
-        } else {
-            requestAnimationFrame(fade)
-        }
+        el.classList.add('is-visible');
+    } else {
+        el.classList.add('is-hidden');
+        el.classList.remove('is-visible');
     };
 };
