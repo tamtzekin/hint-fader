@@ -1,3 +1,4 @@
+/* Fading hint buttons*/
 // Initialise button
 const btn = document.getElementsByClassName('btn');
 
@@ -18,7 +19,6 @@ const hints = [];
 
 for (var i = 0; i < hintIds.length; i++) {
     hints.push(new Hint(hintIds[i], document.getElementById(hintTextIds[i])));
-    // console.log(hints)
 };
 
 // TO DO: already have access to i. clean this up
